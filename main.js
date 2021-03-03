@@ -1,5 +1,5 @@
 
-let 'nama', val;
+let nama, val;
 const url_string = document.URL;
 const url = new URL(url_string);
 let sender;
@@ -15,37 +15,37 @@ footer.innerHTML = sender;
 footer.href = "https://www.instagram.com/rflymh/";
 
 document.querySelector(".tombol").addEventListener('click', function () {
-  Swal.fire("Hallo Ayuza", "Gue ada pertanyaan nih buat lo?", "question").then(function () {
+  Swal.fire("Hallo Pacarku", "Aku ada pertanyaan nih buat kamu?", "question").then(function () {
     Swal.fire("Jawab yang jujur ya!").then(function () {
       Swal.fire("Awas aja kalo boong!!", "", "error").then(function () {
 
         const {
           value: name
         } = Swal.fire({
-          title: 'Masukin nama lo dulu',
+          title: 'Masukin nama kamu dulu',
           input: 'text',
           inputLabel: '',
           showCancelButton: true,
           inputValidator: (value) => {
             if (!value) {
-              return 'Isi dulu dong '
+              return 'Isi dulu dong beb'
             } else {
               nama = value;
             }
           }
         }).then(function () {
           const pertanyaan = Swal.fire({
-            title: `${nama} gua cakep banget? ${sender}?`,
+            title: `${nama} sayang ga sama ${sender}?`,
             showDenyButton: true,
             showCancelButton: false,
-            confirmButtonText: `Ya`,
+            confirmButtonText: `Sayang`,
             denyButtonText: `Gak`,
           }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-              Swal.fire(`${sender} iya lo juga cakep banget ${nama}`).then(function () {
+              Swal.fire(`${sender} juga sayang banget sama ${nama}`).then(function () {
                 Swal.fire({
-                  title: 'Seberapa cakep emang nya?',
+                  title: 'Seberapa sayang emangnya?',
                   icon: 'question',
                   input: 'range',
                   inputLabel: 'Antara 1 - 100 ya',
@@ -57,23 +57,23 @@ document.querySelector(".tombol").addEventListener('click', function () {
                   inputValue: 50
                 }).then((e) => {
                   val = e.value
-                  Swal.fire(`Makasih ya emang gua cakep ${sender} ${val}%`).then(function () {
+                  Swal.fire(`Makasih ya udah sayang sama ${sender} ${val}%`).then(function () {
                     Swal.fire({
-                      title: `Sekarang ${nama} lo demen sama gue?${sender}?`,
+                      title: `Sekarang ${nama} kangen ga sama ${sender}?`,
                       showDenyButton: true,
                       showCancelButton: false,
-                      confirmButtonText: `Iya, dikit`,
+                      confirmButtonText: `Kangen :(`,
                       denyButtonText: `Gak!`,
                     }).then((result) => {
                       /* Read more about isConfirmed, isDenied below */
                       if (result.isConfirmed) {
-                        Swal.fire(`Huhu iya ${sender} juga sih lagi nyoba ${nama} :((`).then(function () {
-                          Swal.fire('Terakhir deh ye').then(function () {
+                        Swal.fire(`Huhu iya ${sender} juga kangen ${nama} :((`).then(function () {
+                          Swal.fire('Terakhir deh sayang').then(function () {
                             Swal.fire('Coba klik ikon hati di paling bawah dong')
                           })
                         })
                       } else if (result.isDenied) {
-                        Swal.fire('Jahat banget emang ', '', 'error').then(function () {
+                        Swal.fire('Jahat banget emang ga kangen sama pacar sendiri', '', 'error').then(function () {
                           Swal.fire('Yaudah deh bye!')
                         })
                       }
@@ -82,7 +82,7 @@ document.querySelector(".tombol").addEventListener('click', function () {
                 })
               })
             } else if (result.isDenied) {
-              Swal.fire(`Yakin ga suka sama gue ${sender}?`, '', 'error').then(function () {
+              Swal.fire(`Yakin ga suka sama ${sender}?`, '', 'error').then(function () {
                 Swal.fire('Yaudah deh bye!')
               })
             }
